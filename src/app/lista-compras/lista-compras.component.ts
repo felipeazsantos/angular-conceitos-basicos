@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 type Item = {
   id: number;
   nome: string;
+  comprado: boolean;
 };
 
 @Component({
@@ -18,8 +19,6 @@ export class ListaComprasComponent {
   items: Item[] = [];
 
   addItem() {
-    console.log(this.nome);
-
     if (!this.nome.trim()) {
       return;
     }
@@ -27,6 +26,7 @@ export class ListaComprasComponent {
     const item: Item = {
       id: ++this.id,
       nome: this.nome,
+      comprado: false
     };
 
     this.items.push(item);
